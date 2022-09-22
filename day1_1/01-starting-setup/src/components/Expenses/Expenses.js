@@ -11,10 +11,20 @@ const Expenses = (props) => {
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
-//   console.log(filteredYear);
+  //   console.log(filteredYear);
   const filteredArray = props.myArray.filter(item => {return item.date.getFullYear().toString()==filteredYear;});
-//  This console was creating error on null entries!!: console.log(filteredArray[0].date.getFullYear());
-
+  //  This console was creating error on null entries!!: console.log(filteredArray[0].date.getFullYear());
+  let expensesContent = <p>There are no expenses</p>;
+  if(filteredArray.length > 0) {
+    expensesContent = filteredArray.map((expense) => (
+        <ExpenseItem
+          key={expense.id}
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
+        />
+      ));
+  }
   return (
     <div>
       <Card className='expenses'>
@@ -22,14 +32,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {filteredArray.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
+        {expensesContent}
       </Card>
     </div>
   );
