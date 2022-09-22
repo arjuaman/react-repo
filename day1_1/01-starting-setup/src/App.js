@@ -1,8 +1,9 @@
-import React, {useState} from "react";
-import Expenses from "./components/Expenses/Expenses";
-import NewExpense from "./components/NewExpenses/NewExpense";
+import React, { useState } from 'react';
 
-const dummyExpensesArray = [
+import NewExpense from './components/NewExpense/NewExpense';
+import Expenses from './components/Expenses/Expenses';
+
+const DUMMY_EXPENSES = [
   {
     id: 'e1',
     title: 'Toilet Paper',
@@ -24,23 +25,28 @@ const dummyExpensesArray = [
   },
 ];
 
-const App = ()=> {
-  
-  const [expenses, setExpenses] = useState(dummyExpensesArray);
-  const addexpenseHandler = (newExpenses) =>{
-    console.log("In App.js");
-    // console.log(expenses);
-    setExpenses((prevExpenses)=>{
-      return [newExpenses,...prevExpenses];
+const App = () => {
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
     });
-  }
+  };
+
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2', {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
 
   return (
     <div>
-      <NewExpense onAddexpense={addexpenseHandler}/>
-      <Expenses myArray={expenses} />
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;
