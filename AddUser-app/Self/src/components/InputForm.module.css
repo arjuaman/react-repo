@@ -1,0 +1,11 @@
+.formClass{
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.formClass.entries {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
