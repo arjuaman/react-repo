@@ -13,7 +13,8 @@ const InputForm = (props) => {
             age: userAge,
             id: Math.random().toString(),
         };
-        props.onAddUserData(dataArray);
+        if(dataArray.name && dataArray.age) 
+            props.onAddUserData(dataArray);
         setUserName('');
         setUserAge('');
     }
@@ -31,7 +32,7 @@ const InputForm = (props) => {
                 <label>Username</label><br/>
                 <input type="text" value={userName} onChange={inputNameHandler}></input>
             </div>
-            <div className={`${styles['formClass']} ${styles.entries}`}>
+            <div className={`${styles.formClass} ${styles.entries}`}>
                 <label>Age (Years)</label><br/>
                 <input type="number" value={userAge} onChange={inputAgeHandler}></input>
             </div>
