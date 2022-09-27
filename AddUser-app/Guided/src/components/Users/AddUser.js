@@ -9,6 +9,11 @@ const AddUser = (props) =>{
 
     const addUserHandler = (e) =>{
         e.preventDefault();
+        //enteredAge is a string because of initialization as a state
+        if(enteredUsername.trim().length===0 || enteredAge.trim().length===0)
+            return;
+        if(Number(enteredAge) < 1)  // or we can write if(+enteredAge < 1)
+            return;
         console.log(enteredUsername, enteredAge);
         setenteredUsername('');
         setenteredAge('');
