@@ -55,6 +55,9 @@ const Login = (props) => {
     value: '', isValid: false
   });
 
+  const {isValid: emailIsValid} = emailState;
+  const {isValid: pwdIsValid} = pwdState;
+
   useEffect(() => {
     console.log('EFFECT RUNNING');
 
@@ -67,7 +70,7 @@ const Login = (props) => {
     const identifier = setTimeout(() => {
       console.log('Checking form validity!');
       setFormIsValid(
-        emailState.isValid && pwdState.isValid
+        emailIsValid && pwdIsValid
       );
     }, 500);
 
@@ -75,7 +78,7 @@ const Login = (props) => {
       console.log('CLEANUP');
       clearTimeout(identifier);
     };
-  }, [emailState, pwdState]);
+  }, [emailIsValid, pwdIsValid]);
 
   const emailChangeHandler = (event) => {
     // setEnteredEmail(event.target.value);
