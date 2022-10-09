@@ -63,19 +63,19 @@ const Login = (props) => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   const identifier = setTimeout(() => {
-  //     console.log('Checking form validity!');
-  //     setFormIsValid(
-  //       enteredEmail.includes('@') && enteredPassword.trim().length > 6
-  //     );
-  //   }, 500);
+  useEffect(() => {
+    const identifier = setTimeout(() => {
+      console.log('Checking form validity!');
+      setFormIsValid(
+        emailState.isValid && pwdState.isValid
+      );
+    }, 500);
 
-  //   return () => {
-  //     console.log('CLEANUP');
-  //     clearTimeout(identifier);
-  //   };
-  // }, [enteredEmail, enteredPassword]);
+    return () => {
+      console.log('CLEANUP');
+      clearTimeout(identifier);
+    };
+  }, [emailState, pwdState]);
 
   const emailChangeHandler = (event) => {
     // setEnteredEmail(event.target.value);
@@ -84,9 +84,9 @@ const Login = (props) => {
       val: event.target.value
     });
 
-    setFormIsValid(
-      emailState.isValid && pwdState.isValid
-    );
+    // setFormIsValid(
+    //   emailState.isValid && pwdState.isValid
+    // );
   };
 
   const passwordChangeHandler = (event) => {
@@ -96,9 +96,9 @@ const Login = (props) => {
       val: event.target.value
     });
 
-    setFormIsValid(
-      pwdState.isValid && emailState.isValid
-    );
+    // setFormIsValid(
+    //   pwdState.isValid && emailState.isValid
+    // );
   };
 
   const validateEmailHandler = () => {
