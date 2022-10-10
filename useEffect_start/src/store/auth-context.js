@@ -1,7 +1,7 @@
 import React from 'react';
 
-const AuthContent = React.createElement({
+const AuthContext = React.createElement({
     isLoggedIn: false
 });
 
-export default AuthContent;
+export default AuthContext;
