@@ -9,11 +9,12 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const checkStoredInfo = localStorage.getItem('isLoggedIn');
-    if(checkStoredInfo === '1'){
+    const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
+
+    if (storedUserLoggedInInformation === '1') {
       setIsLoggedIn(true);
     }
-  },[]);
+  }, []);
 
   const loginHandler = (email, password) => {
     // We should of course check email and password
@@ -28,9 +29,13 @@ function App() {
   };
 
   return (
-    <AuthContext.Provider value={{isLoggedIn: isLoggedIn}}> 
-    {/* {the value in above object from state, key is created by us} */}
-      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: isLoggedIn,
+        onLogout: logoutHandler
+      }}
+    >
+      <MainHeader />
       <main>
         {!isLoggedIn && <Login onLogin={loginHandler} />}
         {isLoggedIn && <Home onLogout={logoutHandler} />}
