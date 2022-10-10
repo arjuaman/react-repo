@@ -28,7 +28,8 @@ function App() {
   };
 
   return (
-    <AuthContext.Provider>
+    <AuthContext.Provider value={{isLoggedIn: isLoggedIn}}> 
+    {/* {the value in above object from state, key is created by us} */}
       <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
       <main>
         {!isLoggedIn && <Login onLogin={loginHandler} />}
