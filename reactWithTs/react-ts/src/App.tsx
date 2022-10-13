@@ -1,10 +1,15 @@
 import './App.css';
 import Todos from './components/Todos';
+import Todo from './models/todo';
 
 function App() {
+  const todos=[
+    new Todo('Hello from model'),
+    new Todo('Hello again')
+  ];
   return (
     <div>
-      <Todos items={["Hello from props","HI from props"]} />
+      <Todos items={todos} />
     </div>
   );
 }
