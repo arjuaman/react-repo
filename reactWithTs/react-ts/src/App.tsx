@@ -4,7 +4,7 @@ import Todo from './models/todo';
 
 function App() {
   const todos=[
-    new Todo('Hello from model'),
+    new Todo('Hello from todoItem'),
     new Todo('Hello again')
   ];
   return (
