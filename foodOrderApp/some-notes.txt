@@ -1,0 +1,5 @@
+props.children : whatever is passed between opening and closing tag inside the parent 
+                 component is then used inside this child component.
+
+                 example in parent: <ChildComp> {xyz} </ChildComp>
+                 in child: <li> {props.children} </li>
