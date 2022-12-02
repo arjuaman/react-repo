@@ -7,6 +7,7 @@ const GameButton = (props: any) => {
     const [text,setText] = useState(sampleText2);
     const btnClickHandler = (e:any) =>{
         // origTitle = "Changed!";
+        e.preventDefault();
         setTitle("Changed!");
     };
     const textChangeHandler = (e:any) => {
@@ -18,7 +19,7 @@ const GameButton = (props: any) => {
             SUBMIT
         </button>
         <div>{title}</div>
-        <input onChange={textChangeHandler}></input>
+        <input type="text" onChange={textChangeHandler}></input>
         <br/>
         <label>{text}</label>
         </React.Fragment>
