@@ -1,0 +1,4 @@
+<ChildTag> yaha wala content child tag ke andar as {props.children} jayega </ChildTag>
+
+<ChildTag propsFuncFromParent={xyz}> => isme propsFuncFromParent wala part as a props jayega child mein and 
+it'll be accessed by {props.propsFuncFromParent}
