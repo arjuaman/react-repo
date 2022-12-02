@@ -1,7 +1,11 @@
+import React,{useState} from 'react';
+
 const GameButton = (props: any) => {
-    let title = props.sample;
+    let origTitle = props.sample;
+    const [title,setTitle] = useState(origTitle);
     const btnClickHandler = () =>{
-        title = "Changed!";
+        // origTitle = "Changed!";
+        setTitle("Changed!");
     };
     return (
         <button onClick={btnClickHandler}>
