@@ -21,7 +21,7 @@ const GameButton = (props: any) => {
         <div>{title}</div>
         <input type="text" onChange={textChangeHandler}></input>
         <br/>
-        <label>{text}</label>
+        <label>{text}</label><br/><br/>
         </React.Fragment>
     );
 };
