@@ -3,7 +3,7 @@ import GameButton from "./GameButton";
 import classes from "./GameContainer.module.css";
 
 const GameContainer = (props: any) => {
-    const reasonForUsingStates = "this should get changed from clicking";
+    const reasonForUsingStates = "this should get changed from clicking SUBMIT button";
     return (
         <Fragment>
             <h1 className={classes.header}>{props.children}</h1>
