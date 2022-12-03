@@ -7,17 +7,24 @@ import Receiver from './components/Receiver';
 
 function App() {
   const text = "props text from parent";
-  const [plant, setPlant] = useState("");
+  // const [plant, setPlant] = useState("");
+  const [myarr, setMyArr] = useState([] as any[]);
   const receivingHandler = (data :any) =>{
     console.log(data);
-    setPlant(data);
+    // setPlant(data);
+    setMyArr(data);
   };
 
   return (
     <div className="App">
       {/* <GameContainer propsFuncFromParent={text}>Hola Amigos!</GameContainer> */} 
       <Sender dataFromSender={receivingHandler}></Sender>
-      <Receiver>{plant}</Receiver>
+      {/* <Receiver>{myarr}</Receiver> */}
+      {myarr.map(item=><Receiver 
+        key={Math.random().toString()}
+        name={item.name} 
+        age={item.age}
+      />)}
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

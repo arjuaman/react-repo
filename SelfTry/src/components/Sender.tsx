@@ -1,24 +1,24 @@
 import React,{useState} from 'react';
 
 const Sender = (props: any) => {
-    // const dummyData = [{
-    //     name: "Arju",
-    //     age: 24
-    // },{
-    //     name: "Ayush",
-    //     age: 19
-    // }];
+    const dummyData = [{
+        name: "Arju",
+        age: 24
+    },{
+        name: "Ayush",
+        age: 19
+    }];
     // const aloe = "aloevera";
-    // const [arr, setArr] = useState(aloe);
+    const [arr, setArr] = useState(dummyData);
     const plantHandler = (e:any) => {
-        let text = e.target.value;
-        props.dataFromSender(text);
+        props.dataFromSender(arr);
     };
 
     return (
         <div>
-            <label>Best plant boi: </label>
-            <input type="text" onChange={plantHandler} />
+            {/* <label>Best plant boi: </label>
+            <input type="text" onChange={plantHandler} /> */}
+            <button onClick={plantHandler}>SEND TO RECEIVER</button>
         </div>
     );
 };
